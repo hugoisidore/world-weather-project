@@ -5,14 +5,20 @@ from tabulate import tabulate
 # Clé API
 api_key = "fb37b4abf3bf5b255e2741e5e5cc04da"
 
-def get_weather():
+def get_weather_for_city(city_name):
     owm = OWM(api_key)
     mgr = owm.weather_manager()
 
-    # Récupérer les conditions météo pour Paris
-    weather = mgr.weather_at_place("Paris,FR").weather
+    # Récupérer les conditions météo
+    weather = mgr.weather_at_place(city_name).weather
     temperature = weather.temperature('celsius')['temp']
     conditions = weather.detailed_status
+
+    return city_name, temperature, conditions
+
+def display_weather_for_multiple_cities(cities):
+    for city in cities:
+        city_name, temperature, conditions = get_weather_for_city(city)
 
     # Créer le tableau avec des couleurs
     data = [
@@ -27,4 +33,9 @@ def get_weather():
     print(tabulate(data, headers=[Fore.CYAN + "Détail", Fore.YELLOW + "Valeur"], tablefmt="grid"))
     print(Fore.GREEN + "=" * 40)
 
-    return temperature, conditions
+    cities = ["Paris,FR","New York,USA","Tokyo,JP", "London,GB", "Berlin,DE",
+          "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG"]
+
+
+    display_weather_for_multiple_cities(cities)
+

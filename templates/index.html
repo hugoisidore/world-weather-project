@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Météo actuelle</title>
+    <title>World Weather</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Météo actuelle pour Paris</h1>
+    <h1>Météo actuelle des capitales</h1>
+
+    <!-- On boucle sur les données météo pour chaque ville -->
+    {% for data in weather_data %}
+    <h2>Météo {{ data.city_name.split(',')[0] }}</h2>  <!-- on affiche le nom de la ville sans le code du pays -->
     <table>
         <tr>
             <th>Détail</th>
@@ -15,12 +19,15 @@
         </tr>
         <tr>
             <td>Température</td>
-            <td>{{ temperature }}°C</td>
+            <td>{{ data.temperature }}°C</td>
         </tr>
         <tr>
             <td>Conditions</td>
-            <td>{{ conditions|capitalize }}</td>
+            <td>{{ data.conditions|capitalize }}</td>
         </tr>
     </table>
+    <br>  <!-- Espacement entre les tableaux -->
+    {% endfor %}
+
 </body>
 </html>
