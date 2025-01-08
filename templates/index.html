@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Météo actuelle des capitales</h1>
-
+    <div class ="table-container">
     <!-- On boucle sur les données météo pour chaque ville -->
     {% for data in weather_data %}
     <h2>Météo {{ data.city_name.split(',')[0] }}</h2>  <!-- on affiche le nom de la ville sans le code du pays -->
@@ -29,6 +29,6 @@
     </table>
     <br>  <!-- Espacement entre les tableaux -->
     {% endfor %}
-
+</div>
 </body>
 </html>
