@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo actuelle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Météo actuelle pour Paris</h1>
+    <table>
+        <tr>
+            <th>Détail</th>
+            <th>Valeur</th>
+        </tr>
+        <tr>
+            <td>Température</td>
+            <td>{{ temperature }}°C</td>
+        </tr>
+        <tr>
+            <td>Conditions</td>
+            <td>{{ conditions|capitalize }}</td>
+        </tr>
+    </table>
+</body>
+</html>
