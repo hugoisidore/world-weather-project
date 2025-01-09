@@ -33,8 +33,9 @@ def display_weather_for_multiple_cities(cities):
     print(tabulate(data, headers=[Fore.CYAN + "Détail", Fore.YELLOW + "Valeur"], tablefmt="grid"))
     print(Fore.GREEN + "=" * 40)
 
-    cities = ["Paris,FR","New York,USA","Tokyo,JP", "London,GB", "Berlin,DE",
-          "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG", "Madrid,ES"]
+    cities = ["Paris,FR", "London,GB", "Berlin,DE","Madrid,ES",
+              "New York,USA","Tokyo,JP","Sydney,AU", "Beijing,CN",
+              "Rio de Janeiro,BR", "Cairo,EG", "Reykjavik,IS", "Budapest,HO"]
 
 
     display_weather_for_multiple_cities(cities)

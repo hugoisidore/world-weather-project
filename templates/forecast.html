@@ -12,9 +12,12 @@
 <body>
     {% include 'header.html' %}
 
-    <h1>Prévisions météo pour {{ city }}</h1>
+    <h1>Prévisions Météo sur les 5 jours à venir pour {{ city }}</h1>
 
-    <table>
+    <!-- Afficher le graphique -->
+    <img src="data:image/png;base64,{{ img_data }}" alt="Graphique des prévisions météo">
+
+    <table class="previsions-table">
         <tr>
             <th>Date</th>
             <th>Température (°C)</th>

@@ -9,8 +9,9 @@ app.register_blueprint(forecast_app)
 @app.route('/')
 def weather():
     # Récupérer les données météo en appelant la fonction de weather.py
-    cities = ["Paris,FR", "New York,USA", "Tokyo,JP", "London,GB", "Berlin,DE",
-              "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG", "Madrid,ES"]
+    cities = ["Paris,FR", "London,GB", "Berlin,DE", "Madrid,ES",
+              "New York,USA", "Tokyo,JP", "Sydney,AU", "Beijing,CN",
+              "Rio de Janeiro,BR", "Cairo,EG", "Reykjavik,IS","Budapest,HU"]
 
     weather_data=[] # on stocke les données météo pour chaque ville
 
