@@ -26,5 +26,9 @@ def weather():
     # Passer les données à la vue HTML
     return render_template('index.html', weather_data=weather_data)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
