@@ -34,7 +34,7 @@ def display_weather_for_multiple_cities(cities):
     print(Fore.GREEN + "=" * 40)
 
     cities = ["Paris,FR","New York,USA","Tokyo,JP", "London,GB", "Berlin,DE",
-          "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG"]
+          "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG", "Madrid,ES"]
 
 
     display_weather_for_multiple_cities(cities)
