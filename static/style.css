@@ -1,9 +1,17 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto Slab', serif;
     background-color: #f0f8ff;
     color: #333;
     text-align: center;
     padding: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header-title {
+    font-family: 'Afacad Flux', serif;
 }
 
 .capital-titles {
@@ -20,6 +28,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Afacad Flux', serif;
 }
 
 header ul {
@@ -47,6 +56,44 @@ header a:hover {
     background-color: #306F78; /* Couleur de fond lors du survol */
 }
 
+footer {
+    background-color: #458E9D;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Afacad Flux', serif;
+}
+
+footer ul {
+    list-style: none; /* Supprime les puces */
+    display: flex; /* Aligne les éléments horizontalement */
+    gap: 40px; /* Espacement entre les onglets */
+    margin: 0; /* Supprime les marges */
+    padding: 0; /* Supprime les padding */
+}
+
+footer li {
+    display: inline;
+}
+
+footer a {
+    color: white; /* Couleur des liens */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;
+    padding: 5px 10px; /* Ajoute un peu d'espace autour du texte */
+    border-radius: 5px; /* Ajoute des coins arrondis */
+    transition: background-color 0.3s; /* Animation pour le survol */
+}
+
+footer a:hover {
+    background-color: #306F78; /* Couleur de fond lors du survol */
+}
 
 h2 {
     color: #766F64;

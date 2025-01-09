@@ -1,8 +1,10 @@
 from flask import Flask, render_template
 from weather import get_weather_for_city  # Import de la fonction météo
+from forecast import forecast_app
 
 # Initialisation de Flask
 app = Flask(__name__)
+app.register_blueprint(forecast_app)
 
 @app.route('/')
 def weather():

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévisions météo pour {{ city }}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/world.jpg') }}" type="image/jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>Prévisions météo pour {{ city }}</h1>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Température (°C)</th>
+            <th>Conditions</th>
+            <th>Icône</th>
+        </tr>
+        {% for day in forecast_data['list'] %}
+        <tr>
+            <td>{{ day['dt_txt'] }}</td>
+            <td>{{ day['main']['temp'] }}</td>
+            <td>{{ day['weather'][0]['description'] }}</td>
+            <td>
+                <img src="http://openweathermap.org/img/wn/{{ day['weather'][0]['icon'] }}.png" alt="Icône météo">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Retour à l'accueil</a>
+
+    {% include 'footer.html' %}
+</body>
+</html>
