@@ -8,7 +8,7 @@ app = Flask(__name__)
 def weather():
     # Récupérer les données météo en appelant la fonction de weather.py
     cities = ["Paris,FR", "New York,USA", "Tokyo,JP", "London,GB", "Berlin,DE",
-              "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG"]
+              "Sydney,AU", "Beijing,CN", "Rio de Janeiro,BR", "Cairo,EG", "Madrid,ES"]
 
     weather_data=[] # on stocke les données météo pour chaque ville
 

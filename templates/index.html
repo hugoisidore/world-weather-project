@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Météo actuelle des capitales</h1>
+  {% include 'header.html' %}
+    <h1 class="capital-titles">Météo actuelle des capitales</h1>
     <div class ="table-container">
     <!-- On boucle sur les données météo pour chaque ville -->
     {% for data in weather_data %}
-    <h2>Météo {{ data.city_name.split(',')[0] }}</h2>  <!-- on affiche le nom de la ville sans le code du pays -->
+        <div class="table-item">
+    <h3>Météo {{ data.city_name.split(',')[0] }}</h3>  <!-- on affiche le nom de la ville sans le code du pays -->
     <table>
         <tr>
             <th>Détail</th>
@@ -28,7 +30,14 @@
         </tr>
     </table>
     <br>  <!-- Espacement entre les tableaux -->
+        </div>
     {% endfor %}
-</div>
+    </div>
+    <h2>Prévisions météorologiques à l'international</h2>
+    <div>
+    <iframe src="https://www.meteoblue.com/en/weather/maps/widget/boulogne-sur-mer_france_3031133?windAnimation=1&gust=1&satellite=1&cloudsAndPrecipitation=1&temperature=1&sunshine=1&extremeForecastIndex=1&geoloc=fixed&tempunit=C&windunit=km%252Fh&lengthunit=metric&zoom=5&autowidth=auto"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%; height: 720px"></iframe>
+        <div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/maps/boulogne-sur-mer_france_3031133?utm_source=map_widget&utm_medium=linkus&utm_content=map&utm_campaign=Weather%2BWidget" target="_blank" rel="noopener">meteoblue</a></div>
+    </div>
+  {% include 'footer.html' %}
 </body>
 </html>
