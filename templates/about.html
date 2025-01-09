@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Weather</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/world.jpg') }}" type="image/jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Asap:wght@400;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+AU+SA:wght@100..400&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+ {% include 'header.html' %}
+  <h1>Bienvenue sur l'expérience World Weather</h1>
+
+  <div class="intro-about">
+    Cette plateforme est dédiée à la consultation de la météo en temps réel des principales capitales du monde. Grâce à notre site, vous avez un accès facile et rapide aux informations météorologiques actuelles, ainsi qu'aux prévisions à venir.
+  </div>
+
+  <div class="content-wrapper">
+    <div class="card">
+      <h3>Suivi des conditions météorologiques en temps réel</h3>
+        <div>Sur la page d'accueil, vous pouvez visualiser la météo en direct pour plusieurs grandes capitales. Chaque ville vous offre une vue détaillée de la température actuelle et des conditions météorologiques (ensoleillé, pluvieux, nuageux, etc.). Ce service vous permet de rester informé où que vous soyez, avec une mise à jour en temps réel des données météo.</div>
+    </div>
+
+    <div class="card">
+      <h3>Radar des vents en direct</h3>
+        <div>Pour un aperçu plus dynamique et interactif, nous vous offrons également un radar des vents en direct. Grâce à un widget intégré, vous pouvez suivre en temps réel les conditions des vents à l'international, vous permettant ainsi de mieux comprendre les conditions climatiques et leur évolution. Vous pourrez observer des cartes détaillées des vents, de la température, des nuages, et plus encore, tout en bénéficiant de prévisions à court terme.</div>
+    </div>
+
+    <div class="card">
+      <h3>Prévisions météorologiques à 5 jours</h3>
+        <div>En plus des données actuelles, nous vous proposons également les prévisions météo à 5 jours pour chaque capitale. Ces prévisions vous offrent un aperçu détaillé de l'évolution du temps à venir, y compris la température, les conditions climatiques et la possibilité de voir les tendances sur plusieurs jours.</div>
+    </div>
+  </div>
+
+  <h4>Une interface simple et intuitive</h4>
+    <div class="conclusion-about">
+      Le site a été conçu pour être simple d’utilisation et accessible à tous. Que vous soyez un professionnel ou simplement un passionné de météo, vous trouverez facilement les informations dont vous avez besoin grâce à notre interface claire et intuitive.
+      World Weather est l'outil idéal pour rester connecté aux conditions climatiques mondiales, qu'il s'agisse des températures locales, des vents ou des prévisions à venir. Nous espérons que vous apprécierez l'expérience et que vous trouverez ce site utile pour planifier vos activités quotidiennes ou vos voyages.
+    </div>
+ {% include 'footer.html' %}
+</body>
+</html>

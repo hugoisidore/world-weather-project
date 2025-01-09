@@ -100,6 +100,10 @@ h2 {
     color: #766F64;
 }
 
+h3 {
+    color: #766F64;
+}
+
 .table-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -129,4 +133,52 @@ td {
 .previsions-table {
     margin: 0 auto;
     width: 60%;
+}
+
+.intro-about {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.conclusion-about {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Conteneur général pour centrer les cartes */
+.content-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 0 10%;
+}
+
+.card {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%; /* Largeur de 30% pour chaque carte */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Responsivité : ajuster les cartes sur petits écrans */
+@media (max-width: 768px) {
+  .card {
+    width: 80%; /* 80% de la largeur sur les petits écrans */
+    margin: 10px auto;
+  }
+
+  .content-wrapper {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 90%; /* 90% de la largeur sur les très petits écrans */
+  }
 }
