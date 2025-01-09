@@ -58,7 +58,7 @@ header a:hover {
 }
 
 footer {
-    background-color: #458E9D;
+    background-color:#458E9D;
     color: white;
     padding: 20px;
     margin-top: 40px;
@@ -102,7 +102,7 @@ h2 {
 
 .table-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-items: center;
     margin-top: 20px;
@@ -118,10 +118,15 @@ th, td {
 }
 
 th {
-    background-color: #458E9D;
+    background-color: #766F64;
     color: white;
 }
 
 td {
     background-color: #f8f8f8;
+}
+
+.previsions-table {
+    margin: 0 auto;
+    width: 60%;
 }
