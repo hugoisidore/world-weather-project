@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from weather import get_weather_for_city  # Import de la fonction météo
 from forecast import forecast_app
+from pollution import get_city_coordinates, get_air_pollution
 
 # Initialisation de Flask
 app = Flask(__name__)
@@ -29,6 +30,22 @@ def weather():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/air', methods=['GET', 'POST'])
+def pollution():
+    pollution_data = None
+    city_name = None
+
+    if request.method == 'POST':
+        city_name = request.form.get('city')
+        try:
+            latitude, longitude = get_city_coordinates(city_name)
+            pollution_data = get_air_pollution(latitude, longitude)
+        except ValueError as e:
+            pollution_data = None
+            city_name = str(e)
+
+    return render_template('pollution.html', pollution_data=pollution_data, city_name=city_name)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
