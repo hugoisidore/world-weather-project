@@ -182,3 +182,24 @@ td {
     width: 90%; /* 90% de la largeur sur les très petits écrans */
   }
 }
+
+.good {
+    color: green;
+    font-weight: bold;
+}
+.fair {
+    color: orange;
+    font-weight: bold;
+}
+.moderate {
+    color: #d7d71d;
+    font-weight: bold;
+}
+.poor {
+    color: red;
+    font-weight: bold;
+}
+.very-poor {
+    color: darkred;
+    font-weight: bold;
+}

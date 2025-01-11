@@ -22,9 +22,27 @@
         {% if pollution_data %}
         <div class="pollution-results">
             <h2>Résultats pour {{ city_name }}</h2>
-            <p><strong>PM10 :</strong> {{ pollution_data.PM10 }}</p>
-            <p><strong>PM2.5 :</strong> {{ pollution_data.PM2_5 }}</p>
+            <p><strong>PM10 (Particules fines) :</strong> {{ pollution_data.PM10 }}</p>
             <p><strong>AQI (Indice de qualité de l'air) :</strong> {{ pollution_data.AQI }}</p>
+            {% if pollution_data.AQI == 1 %}
+                <p class="good">AQI : Good (Très bon)</p>
+            {% elif pollution_data.AQI == 2 %}
+                <p class="fair">AQI : Fair (Moyenne)</p>
+            {% elif pollution_data.AQI == 3 %}
+                <p class="moderate">AQI : Moderate (Modérée)</p>
+            {% elif pollution_data.AQI == 4 %}
+                <p class="poor">AQI : Poor (Mauvaise)</p>
+            {% elif pollution_data.AQI == 5 %}
+                <p class="very-poor">AQI : Very Poor (Très mauvaise)</p>
+            {% else %}
+                <p>Impossible de déterminer la qualité de l'air.</p>
+            {% endif %}
+            <p><strong>CO (Monoxyde de carbone) :</strong> {{ pollution_data.CO }} µg/m³</p>
+            <p><strong>NO (Dioxyde d'azote) :</strong> {{ pollution_data.NO }} µg/m³</p>
+            <p><strong>NO2 (Dioxyde d'azote) :</strong> {{ pollution_data.NO2 }} µg/m³</p>
+            <p><strong>O3 (Ozone) :</strong> {{ pollution_data.O3 }} µg/m³</p>
+            <p><strong>SO2 (Dioxyde de soufre) :</strong> {{ pollution_data.SO2 }} µg/m³</p>
+            <p><strong>NH3 (Ammoniac) :</strong> {{ pollution_data.NH3 }} µg/m³</p>
         </div>
         {% endif %}
     </div>
