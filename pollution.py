@@ -7,7 +7,7 @@ air_quality_manager = owm.airpollution_manager()
 
 def get_city_coordinates(city_name):
     """
-    Récupère les coordonnées géographiques d'une ville à partir de son nom.
+    on  récupère les coordonnées géographiques d'une ville à partir de son nom.
     """
     geocoder = owm.geocoding_manager()
     locations = geocoder.geocode(city_name, limit=1)
@@ -19,11 +19,16 @@ def get_city_coordinates(city_name):
 
 def get_air_pollution(lat, lon):
     """
-    Récupère les données de pollution de l'air pour des coordonnées données.
+    on récupère les données de pollution de l'air pour des coordonnées données.
     """
     air_quality = air_quality_manager.air_quality_at_coords(lat, lon)
     return {
         "PM10": air_quality.pm10,
-        "PM2.5": air_quality.pm2_5,
         "AQI": air_quality.aqi,
+        "CO": air_quality.co,
+        "NO": air_quality.no,
+        "NO2": air_quality.no2,
+        "O3": air_quality.o3,
+        "SO2": air_quality.so2,
+        "NH3": air_quality.nh3,
     }
