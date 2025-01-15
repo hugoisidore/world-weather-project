@@ -1,12 +1,19 @@
 from flask import Flask, render_template, request
+import requests
+from pyowm import OWM
 from weather import get_weather_for_city  # Import de la fonction météo
 from forecast import forecast_app
 from pollution import get_city_coordinates, get_air_pollution
-from geoloc import app
+from geoloc import geoloc_blueprint
+
+# Initialisation de PyOWM
+owm = OWM('fb37b4abf3bf5b255e2741e5e5cc04da')
+mgr = owm.weather_manager()
 
 # Initialisation de Flask
 app = Flask(__name__)
 app.register_blueprint(forecast_app)
+app.register_blueprint(geoloc_blueprint, url_prefix='/debug/geoloc')
 
 @app.route('/')
 def weather():
@@ -25,8 +32,25 @@ def weather():
             'conditions': conditions
         })
 
+    user_ip = request.remote_addr if request.remote_addr != '127.0.0.1' else '1.1.1.1'
+    geo_api_url = f'http://ip-api.com/json/{user_ip}'
+    geo_response = requests.get(geo_api_url).json()
+    localized_weather = None
+
+    if geo_response.get('status') == 'success':
+        city = geo_response['city']
+        latitude = geo_response['lat']
+        longitude = geo_response['lon']
+        observation = mgr.weather_at_coords(latitude, longitude)
+        weather = observation.weather
+        localized_weather = {
+            'city': city,
+            'temperature': weather.temperature('celsius')['temp'],
+            'conditions': weather.detailed_status
+        }
+
     # Passer les données à la vue HTML
-    return render_template('index.html', weather_data=weather_data)
+    return render_template('index.html', weather_data=weather_data, localized_weather=localized_weather or {})
 
 @app.route('/about')
 def about():
