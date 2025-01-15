@@ -10,7 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Asap:wght@400;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+AU+SA:wght@100..400&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  {% include 'header.html' %}
+    {% include 'header.html' %}
+
+    <!-- Géolocalisation de l'utilisateur -->
+    <section id="local-weather">
+        <h1>Météo Géolocalisée</h1>
+        {% if localized_weather and localized_weather.city %}
+            <h2>Météo à {{ localized_weather.city }}</h2>
+            <p>Température : {{ localized_weather.temperature }}°C</p>
+            <p>Conditions : {{ localized_weather.conditions|capitalize }}</p>
+        {% else %}
+            <p>Impossible d'obtenir votre position. Veuillez entrer une ville manuellement.</p>
+        {% endif %}
+    </section>
+
+    <!-- Météo en temps réel des capitales -->
     <h1 class="capital-titles">Météo Live des Capitales</h1>
     <div class ="table-container">
     <!-- On boucle sur les données météo pour chaque ville -->

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from weather import get_weather_for_city  # Import de la fonction météo
 from forecast import forecast_app
 from pollution import get_city_coordinates, get_air_pollution
+from geoloc import app
 
 # Initialisation de Flask
 app = Flask(__name__)
