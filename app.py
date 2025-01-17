@@ -32,7 +32,7 @@ def weather():
             'conditions': conditions
         })
 
-    user_ip = request.remote_addr if request.remote_addr != '127.0.0.1' else '1.1.1.1'
+    user_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
     geo_api_url = f'http://ip-api.com/json/{user_ip}'
     geo_response = requests.get(geo_api_url).json()
     localized_weather = None
